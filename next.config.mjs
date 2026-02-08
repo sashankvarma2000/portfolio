@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig = {
-  output: "export",
+  ...(isGithubPages && {
+    output: "export",
+    basePath: "/portfolio",
+    assetPrefix: "/portfolio/",
+  }),
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === "production" ? "/portfolio" : "",
-  assetPrefix: process.env.NODE_ENV === "production" ? "/portfolio/" : "",
 };
 
 export default nextConfig;
