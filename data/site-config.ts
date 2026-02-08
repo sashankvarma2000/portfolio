@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "rsashank@bu.edu",
   phone: "+1 (857) 376-7899",
   location: "Boston, MA",
-  linkedin: "https://linkedin.com/in/sashank-varma-rudraraju",
+  linkedin: "https://www.linkedin.com/in/sashank-varma-rudraraju/",
   github: "https://github.com/sashankvarma2000",
   openToWork: true,
   preferredRoles: ["ML Engineer", "GenAI Engineer", "Research Engineer"],
