@@ -2,22 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --background-secondary: 0 0% 96%;
+    --background-tertiary: 0 0% 92%;
+    --foreground: 0 0% 9%;
+    --foreground-muted: 0 0% 40%;
+    --foreground-subtle: 0 0% 55%;
+    --border: 0 0% 90%;
+    --border-hover: 0 0% 80%;
+    --accent-primary: 262 83% 58%;
+    --accent-secondary: 187 85% 43%;
+    --accent-tertiary: 160 84% 39%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --background-secondary: 0 0% 7%;
+    --background-tertiary: 0 0% 10%;
+    --foreground: 0 0% 98%;
+    --foreground-muted: 0 0% 64%;
+    --foreground-subtle: 0 0% 45%;
+    --border: 0 0% 15%;
+    --border-hover: 0 0% 25%;
+    --accent-primary: 262 83% 58%;
+    --accent-secondary: 187 85% 43%;
+    --accent-tertiary: 160 84% 39%;
+  }
+
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-border-hover;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary bg-clip-text text-transparent;
+  }
+
+  .card-base {
+    @apply bg-background-secondary border border-border rounded-xl transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-border-hover hover:shadow-lg hover:shadow-accent-primary/5;
+  }
+
+  .metric-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent-tertiary/10 text-accent-tertiary border border-accent-tertiary/20;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-foreground-muted mt-4 max-w-2xl;
+  }
 }
 
 @layer utilities {
